@@ -217,29 +217,41 @@ void printmenu(string menu)
 
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, 12);
+    gotoxy(1, 2);
     cout << " $$$$$$\\  $$\\   $$\\  $$$$$$\\  $$$$$$$\\        $$\\   $$\\  $$$$$$\\  $$\\      $$\\ $$$$$$$$\\  " << endl;
+    gotoxy(1, 3);
     cout << "$$  __$$\\ $$ |  $$ |$$  __$$\\ $$  __$$\\       $$$\\  $$ |$$  __$$\\ $$$\\    $$$ |$$  _____| " << endl;
     SetConsoleTextAttribute(h, 11);
+    gotoxy(1, 4);
     cout << "$$ /  \\__|$$ |  $$ |$$ /  $$ |$$ |  $$ |      $$$$\\ $$ |$$ /  $$ |$$$$\\  $$$$ |$$ |       " << endl;
+    gotoxy(1, 5);
     cout << "\\$$$$$$\\  $$$$$$$$ |$$ |  $$ |$$$$$$$  |      $$ $$\\$$ |$$$$$$$$ |$$\\$$\\$$ $$ |$$$$$\\     " << endl;
+    gotoxy(1, 6);
     cout << " \\____$$\\ $$  __$$ |$$ |  $$ |$$  ____/       $$ \\$$$$ |$$  __$$ |$$ \\$$$  $$ |$$  __|    " << endl;
     SetConsoleTextAttribute(h, 9);
+    gotoxy(1, 7);
     cout << "$$\\   $$ |$$ |  $$ |$$ |  $$ |$$ |            $$ |\\$$$ |$$ |  $$ |$$ |\\$  /$$ |$$ |       " << endl;
+    gotoxy(1, 8);
     cout << "\\$$$$$$  |$$ |  $$ | $$$$$$  |$$ |            $$ | \\$$ |$$ |  $$ |$$ | \\_/ $$ |$$$$$$$$\\  " << endl;
+    gotoxy(1, 9);
     cout << " \\______/ \\__|  \\__| \\______/ \\__|            \\__|  \\__|\\__|  \\__|\\__|     \\__|\\________| " << endl;
 
     SetConsoleTextAttribute(h, 15);
-    cout << "*****************************************************************************************" << endl
+    cout << "*******************************************************************************************" << endl
          << endl;
 
-    gotoxy(30, 10);
+    gotoxy(30, 12);
     dateandtime();
 
-    SetConsoleTextAttribute(h, 6);
-    cout << " \t \t \t \t " << menu << endl;
     SetConsoleTextAttribute(h, 15);
-    cout << "*****************************************************************************************" << endl
+    gotoxy(0, 14);
+    cout << "*******************************************************************************************" << endl
          << endl;
+    SetConsoleTextAttribute(h, 6);
+    gotoxy(33, 14);
+    cout <<"( "<< menu <<" )" <<endl;
+    SetConsoleTextAttribute(h, 15);
+    cout <<endl;
 }
 
 // To show date and time
@@ -296,6 +308,7 @@ void signUp()
             {
                 cout << endl;
                 cout << "You can't Sign up as Admin without code !" << endl;
+                halt();
             }
         }
     }
@@ -312,6 +325,7 @@ void signUp()
         {
             cout << endl;
             cout << "You can't Sign up as Employee without code !" << endl;
+            halt();
         }
     }
     else if (option == "3")
@@ -327,9 +341,8 @@ void signUp()
     else
     {
         cout << "Invalid number !" << endl;
+        halt();
     }
-    cout << endl;
-    halt();
 }
 
 // take user name
@@ -416,6 +429,7 @@ void signupworking(string option, string name, string pass, string phone)
         cout << "Sign Up Successfully" << endl
              << endl;
     }
+    halt();
 }
 
 // signup function
@@ -1038,7 +1052,6 @@ void minusproduct()
 
                     cout << "Product removed !" << endl
                          << endl;
-                    halt();
                     break;
                 }
                 else
